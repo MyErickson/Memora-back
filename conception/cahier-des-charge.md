@@ -496,6 +496,3 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 - `children` et `activities` : Un enfant peut avoir plusieurs activités ajoutées par un éducateur.
 - `users` et `notifications` : Un utilisateur (parent) peut recevoir plusieurs notifications pour les activités de son enfant.
 
----
-
-Ce dictionnaire de données offre un aperçu détaillé de chaque entité, avec une description de chaque champ pour clarifier le rôle de chaque attribut dans la base de données.
