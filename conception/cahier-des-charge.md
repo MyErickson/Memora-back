@@ -147,20 +147,6 @@ Ces choix technologiques permettent de répondre aux principaux besoins du proje
 
 ---
 
-### Routes API (Back-End Endpoints)
-
-| Méthode | Endpoint                       | Description |
-|---------|--------------------------------|-------------|
-| POST    | `/api/auth/login`              | Connexion utilisateur |
-| POST    | `/api/auth/register`           | Inscription utilisateur |
-| GET     | `/api/children/:id`            | Récupérer les informations d'un enfant |
-| POST    | `/api/activities`              | Créer une activité pour un enfant |
-| GET     | `/api/activities/:child_id`    | Récupérer les activités d’un enfant |
-| POST    | `/api/notifications/send`      | Envoi de notification aux parents |
-| GET     | `/api/notifications/:user_id`  | Récupérer les notifications d’un utilisateur |
-
----
-
 ### User Stories
 
 #### Rôle : Éducateur
@@ -286,13 +272,15 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
         string photo_url
         datetime created_at
     }
-    NOTIFICATIONS {
+
+        ESTABLISHMENTS {
         int id
-        int user_id
-        int activity_id
-        string status
-        datetime sent_at
+        string name
+        string address
+        string phone_number
+        datetime created_at
     }
+
 ```
 ### Structure de la Base de Données
 
@@ -315,11 +303,11 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 |               | `description`   | TEXT          | Description de l'activité                               |
 |               | `photo_url`     | VARCHAR(255)  | URL de la photo associée à l'activité                   |
 |               | `created_at`    | TIMESTAMP     | Date et heure de l'ajout de l'activité                  |
-| **notifications** | `id`         | INT           | Identifiant unique de la notification                   |
-|                   | `user_id`    | INT           | Identifiant de l'utilisateur recevant la notification   |
-|                   | `activity_id`| INT           | Identifiant de l'activité liée                          |
-|                   | `status`     | ENUM          | Statut de la notification (`sent`, `viewed`)            |
-|                   | `sent_at`    | TIMESTAMP     | Date et heure d'envoi de la notification                |
+| **establishments** | `id`                | INT            | Identifiant unique de l'établissement                    |
+|                   | `name`               | VARCHAR(255)   | Nom de l'établissement                                   |
+|                   | `address`            | VARCHAR(255)   | Adresse de l'établissement                               |
+|                   | `phone_number`       | VARCHAR(15)    | Numéro de téléphone de l'établissement                   |
+|                   | `created_at`         | TIMESTAMP      | Date de création de l'établissement                      
 
 ---
 
@@ -342,9 +330,12 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 | `GET`   | `/api/activities/:id`              | Récupère les détails d'une activité                           |
 | `PUT`   | `/api/activities/:id`              | Modifie une activité                                          |
 | `DELETE`| `/api/activities/:id`              | Supprime une activité                                         |
-| `GET`   | `/api/notifications`               | Récupère les notifications d'un utilisateur                   |
-| `POST`  | `/api/notifications/send`          | Envoie une notification aux parents après une mise à jour d'activité |
-| `PUT`   | `/api/notifications/:id/viewed`    | Marque une notification comme vue                             |
+| `GET`   | `/api/establishments`             | Récupère la liste de tous les établissements              |
+| `GET`   | `/api/establishments/:id`         | Récupère les informations d'un établissement spécifique   |
+| `POST`  | `/api/establishments`             | Crée un nouvel établissement                              |
+| `PUT`   | `/api/establishments/:id`         | Modifie les informations d'un établissement existant      |
+| `DELETE`| `/api/establishments/:id`         | Supprime un établissement                                 |
+
 
 ---
 
@@ -478,21 +469,22 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 
 ---
 
-#### Entité : `notifications`
+#### Entité : `establishments`
 
-| Attribut          | Type           | Description                                                    |
-|-------------------|----------------|----------------------------------------------------------------|
-| `id`              | INT            | Identifiant unique de la notification                          |
-| `user_id`         | INT            | Identifiant de l'utilisateur recevant la notification          |
-| `activity_id`     | INT            | Identifiant de l'activité liée à la notification               |
-| `status`          | ENUM           | Statut de la notification (`sent`, `viewed`)                   |
-| `sent_at`         | TIMESTAMP      | Date et heure d'envoi de la notification                       |
+| Attribut       | Type         | Description                                       |
+|----------------|--------------|---------------------------------------------------|
+| `id`           | INT          | Identifiant unique de l'établissement             |
+| `name`         | VARCHAR(255) | Nom de l'établissement (ex. crèche, garderie)     |
+| `address`      | VARCHAR(255) | Adresse physique de l'établissement               |
+| `phone_number` | VARCHAR(15)  | Numéro de téléphone de l'établissement            |
+| `created_at`   | TIMESTAMP    | Date et heure de création de l'enregistrement     |
 
 ---
 
 ### Relations entre les Entités
 
+- `establishments` et `users` : Un établissement peut avoir plusieurs utilisateurs (éducateurs et parents).
 - `users` et `children` : Un éducateur (user avec rôle `educator`) peut être associé à plusieurs enfants.
 - `children` et `activities` : Un enfant peut avoir plusieurs activités ajoutées par un éducateur.
-- `users` et `notifications` : Un utilisateur (parent) peut recevoir plusieurs notifications pour les activités de son enfant.
+
 
