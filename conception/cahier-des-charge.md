@@ -245,43 +245,7 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 
 ## Documents de Conception
 
-### Diagramme ERD (Entité-Relation-Diagram)
 
-```mermaid
-
-    USERS {
-        int id
-        string name
-        string email
-        string password_hash
-        string role
-        datetime created_at
-    }
-    CHILDREN {
-        int id
-        string name
-        date dob
-        string profile_image
-    }
-    ACTIVITIES {
-        int id
-        int child_id
-        int educator_id
-        string type
-        string description
-        string photo_url
-        datetime created_at
-    }
-
-        ESTABLISHMENTS {
-        int id
-        string name
-        string address
-        string phone_number
-        datetime created_at
-    }
-
-```
 ### Structure de la Base de Données
 
 | Table         | Champs          | Type          | Description                                             |
