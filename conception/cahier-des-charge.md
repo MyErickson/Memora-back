@@ -75,14 +75,14 @@ Pour que le projet fonctionne avec un minimum de fonctionnalités viables, le MV
   - **Performance** : Contrairement aux technologies purement web comme Cordova, React Native utilise des composants natifs, assurant des performances élevées, cruciales pour une application réactive et fluide.
   - **Comparaison avec Flutter** : Flutter est une excellente alternative, mais React Native est plus proche du développement web classique (utilise JavaScript et TypeScript) et s'intègre bien avec des librairies déjà existantes pour le web. React Native permet également un rendu plus natif sur les plateformes iOS et Android, tandis que Flutter, bien que performant, utilise un moteur de rendu indépendant, ce qui peut parfois entraîner des différences visuelles subtiles.
 
-#### Back-End : Deno et Express
+#### Back-End : Deno et Oak
 
-- **Choix** : Deno avec Express en tant que framework de développement back-end.
+- **Choix** : Deno avec Oak en tant que framework de développement back-end.
 - **Justification** : 
   - **Modernité et Sécurité** : Deno est une évolution de Node.js, conçu par le créateur original de Node avec une emphase sur la sécurité (exécution sécurisée par défaut sans accès au système de fichiers ou aux réseaux sans autorisation explicite).
   - **Gestion native de TypeScript** : Deno intègre le support de TypeScript sans configuration additionnelle, ce qui permet une meilleure maintenabilité du code grâce au typage statique et réduit les risques de bugs.
   - **Modules modernes** : Contrairement à Node.js, Deno utilise des modules basés sur des URLs, éliminant les fichiers `node_modules` et réduisant les conflits de version et la taille des dépendances.
-  - **Utilisation d'Express** : Express est un framework mature, bien documenté, et léger, qui offre des solutions robustes pour la gestion des routes et des middlewares. Bien qu'initialement conçu pour Node.js, Express peut être utilisé avec Deno grâce à des modules compatibles, permettant d'utiliser ce framework largement adopté pour des besoins spécifiques sans se soucier de la courbe d'apprentissage.
+  - **Utilisation d’Oak** : Oak est un framework mature, bien documenté et léger, qui offre des solutions robustes pour la gestion des routes et des middlewares dans l’environnement Deno. Conçu spécifiquement pour Deno, Oak tire parti des fonctionnalités natives de Deno tout en permettant une grande flexibilité et une performance optimisée pour les applications serveur. Il offre ainsi une alternative puissante et adaptée aux besoins spécifiques des développeurs, sans nécessiter de modules supplémentaires pour la compatibilité.
   - **Comparaison avec Node.js** : Bien que Node.js reste le standard de l’industrie, Deno offre une meilleure sécurité par défaut et un écosystème plus moderne. Deno est particulièrement pertinent pour un projet où la sécurité et la modularité sont cruciales, comme c’est le cas pour une application gérant des données personnelles d’enfants.
 
 #### Base de Données : PostgreSQL
@@ -224,7 +224,7 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 
 #### Développement Back-End
 
-- **Conception et développement des endpoints API** : Créer des API sécurisées et performantes avec Deno et Express, pour gérer les requêtes front-end et les interactions avec la base de données.
+- **Conception et développement des endpoints API** : Créer des API sécurisées et performantes avec Deno et Oak, pour gérer les requêtes front-end et les interactions avec la base de données.
 - **Gestion de la base de données** : Mettre en place et administrer la base de données PostgreSQL, définir les schémas, gérer les relations entre les tables, et garantir l'intégrité des données.
 - **Sécurité et authentification** : Implémenter des mesures de sécurité pour protéger les données des utilisateurs, y compris la gestion de l'authentification avec JWT et la protection des informations sensibles.
 
