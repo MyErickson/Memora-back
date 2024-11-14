@@ -14,9 +14,8 @@ classDiagram
          id
          name
          email
-         passwordHash
         role
-         datetime
+        datetime
     }
 
     class Child {
@@ -35,8 +34,8 @@ classDiagram
          datetime
     }
 
-    Establishment "0,1" -- "0,n" User : "has"
-    User "0,1" -- "0,n" Child : "manages"
-    Child "0,1" -- "0,n" Activity : "has"
+    Establishment "0,n" -- "0,1" User : "has"
+    User "0,n" -- "0,n" Child : "manages"
+    Child "0,n" -- "0,n" Activity : "has"
 
 ```

@@ -253,7 +253,6 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 | **users**     | `id`            | INT           | Identifiant unique de l'utilisateur                     |
 |               | `name`          | VARCHAR(100)  | Nom de l'utilisateur                                    |
 |               | `email`         | VARCHAR(255)  | Adresse email de l'utilisateur                          |
-|               | `password_hash` | VARCHAR(255)  | Hash du mot de passe                                    |
 |               | `role`          | ENUM          | Rôle de l'utilisateur (`parent`, `educator`, `admin`)   |
 |               | `created_at`    | TIMESTAMP     | Date de création de l'utilisateur                       |
 | **children**  | `id`            | INT           | Identifiant unique de l'enfant                          |
@@ -402,7 +401,6 @@ En tant que développeur solo, j’assume toutes les responsabilités du dévelo
 | `id`              | INT            | Identifiant unique de l'utilisateur                            |
 | `name`            | VARCHAR(100)   | Nom de l'utilisateur                                           |
 | `email`           | VARCHAR(255)   | Adresse email de l'utilisateur                                 |
-| `password_hash`   | VARCHAR(255)   | Hash du mot de passe de l'utilisateur                          |
 | `role`            | ENUM           | Rôle de l'utilisateur (`parent`, `educator`, `admin`)          |
 | `created_at`      | TIMESTAMP      | Date de création de l'utilisateur                              |
 
