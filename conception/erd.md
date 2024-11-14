@@ -39,5 +39,3 @@ erDiagram
         string photoUrl
         datetime created_at
     }
-    
-    ```
