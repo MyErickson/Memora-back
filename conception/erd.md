@@ -1,5 +1,6 @@
 ### Diagramme ERD en Mermaid
 
+```mermaid
 erDiagram
     ESTABLISHMENT ||--o{ USER : employs
     ESTABLISHMENT {
@@ -38,3 +39,5 @@ erDiagram
         string photoUrl
         datetime created_at
     }
+    
+    ```
