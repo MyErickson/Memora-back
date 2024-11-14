@@ -1,0 +1,71 @@
+# Deno
+deno.lock
+.DS_Store
+
+# Dossiers de cache et de compilations locales
+/cache/
+/dist/
+/build/
+/out/
+/tmp/
+*.log
+
+# Configurations locales et fichiers secrets
+.env
+.env.*.local
+.env.local
+.env.test.local
+
+# Prisma
+/prisma/.env           
+/prisma/migrations/     
+/node_modules/@prisma   
+/prisma/*.db            
+
+# Node.js 
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Visual Studio Code
+.vscode/
+.vscode/settings.json  
+.vscode/tasks.json
+.vscode/launch.json
+
+# Systèmes d'exploitation
+.DS_Store               
+Thumbs.db               
+Icon?                   
+ehthumbs.db             
+Desktop.ini             
+.AppleDouble            
+.LSOverride             
+*.swp                   
+
+# Logs de débogage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log                   
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Exécutable compilé
+*.exe
+*.out
+*.app
+
+# Images de couverture de tests
+coverage/
+coverage-final.json
+nyc_output/
+
+# Configurations spécifiques aux outils
+*.log.*                 
+*.log-[0-9]*            # 
+
